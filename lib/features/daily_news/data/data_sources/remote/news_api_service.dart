@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:journal/core/constants/constants.dart';
-import 'package:journal/features/data/models/article.dart';
+import 'package:journal/features/daily_news/data/models/article.dart';
 import 'package:retrofit/dio.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
@@ -15,7 +15,6 @@ abstract class NewsApiService {
   Future<HttpResponse<ArticleResponse>> getNewsArticles({
     @Query("apiKey") String? apikey,
     @Query("country") String? country,
-
     @Query("category") String? category,
   });
 }

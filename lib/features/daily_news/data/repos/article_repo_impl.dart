@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:journal/core/constants/constants.dart';
 import 'package:journal/core/resources/data_state.dart';
-import 'package:journal/features/data/data_sources/remote/news_api_service.dart';
-import 'package:journal/features/data/models/article.dart';
-import 'package:journal/features/domain/repos/article_repo.dart';
+import 'package:journal/features/daily_news/data/data_sources/remote/news_api_service.dart';
+import 'package:journal/features/daily_news/data/models/article.dart';
+import 'package:journal/features/daily_news/domain/repos/article_repo.dart';
 
 class ArticleRepoImpl implements ArticleRepo {
   final NewsApiService newsApiService;
@@ -17,7 +17,7 @@ class ArticleRepoImpl implements ArticleRepo {
     try {
       final httpResponse = await newsApiService.getNewsArticles(
         apikey: newsApiKey,
-        // category: categoryQuery,
+        category: categoryQuery,
         country: countryQuery,
       );
       if (httpResponse.response.statusCode == HttpStatus.ok) {

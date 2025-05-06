@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
-import 'package:journal/features/domain/entities/aticle.dart';
+import 'package:journal/features/daily_news/domain/entities/aticle.dart';
 
 abstract class ArticleState extends Equatable {
   final List<ArticleEntity>? articles;

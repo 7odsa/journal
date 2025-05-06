@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class ArticleEntity extends Equatable {
   // final int? id;
+  final SourceEntity? source;
   final String? author;
   final String? title;
   final String? description;
@@ -11,6 +12,7 @@ class ArticleEntity extends Equatable {
   final String? content;
 
   const ArticleEntity({
+    required this.source,
     // required this.id,
     required this.author,
     required this.title,
@@ -32,4 +34,11 @@ class ArticleEntity extends Equatable {
     publishedAt,
     content,
   ];
+}
+
+class SourceEntity {
+  final String? id;
+  final String? name;
+
+  SourceEntity({required this.id, required this.name});
 }

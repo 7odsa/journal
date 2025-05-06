@@ -1,4 +1,4 @@
-import 'package:journal/features/domain/entities/aticle.dart';
+import 'package:journal/features/daily_news/domain/entities/aticle.dart';
 
 class ArticleResponse {
   final List<ArticleModel> articles;
@@ -18,6 +18,7 @@ class ArticleResponse {
 class ArticleModel extends ArticleEntity {
   const ArticleModel({
     // required super.id,
+    required super.source,
     required super.author,
     required super.title,
     required super.description,
@@ -28,8 +29,10 @@ class ArticleModel extends ArticleEntity {
   });
 
   factory ArticleModel.fromJson(Map<String, dynamic> map) {
+    SourceModel mapSource = SourceModel.fromJson(map["source"]);
     return ArticleModel(
       // id: map["id"] ?? '',
+      source: mapSource,
       author: map['author'] ?? '',
       title: map['title'] ?? '',
       description: map['description'] ?? '',
@@ -38,5 +41,13 @@ class ArticleModel extends ArticleEntity {
       publishedAt: map['publishedAt'] ?? '',
       content: map['content'] ?? '',
     );
+  }
+}
+
+class SourceModel extends SourceEntity {
+  SourceModel({required super.id, required super.name});
+
+  factory SourceModel.fromJson(Map<String, dynamic> map) {
+    return SourceModel(id: map["id"], name: map["name"]);
   }
 }
