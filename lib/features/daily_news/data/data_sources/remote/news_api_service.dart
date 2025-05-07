@@ -13,8 +13,8 @@ abstract class NewsApiService {
 
   @GET("/top-headlines")
   Future<HttpResponse<ArticleResponse>> getNewsArticles({
-    @Query("apiKey") String? apikey,
+    @Query("apiKey") String? apikey = newsApiKey,
     @Query("country") String? country,
-    @Query("category") String? category,
+    @Query("category") String? category = categoryQuery,
   });
 }

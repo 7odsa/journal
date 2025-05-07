@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:journal/di.dart';
 import 'package:journal/features/daily_news/presentation/state_management/article/article_provider.dart';
 import 'package:journal/features/daily_news/presentation/state_management/article/article_state.dart';
 
 void main() {
+  initializeDependancies();
   runApp(MaterialApp(home: ProviderScope(child: const MainApp())));
 }
 
